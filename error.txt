@@ -1,0 +1,32 @@
+I'm using GCC 12.3.0 and C++ 20 and VS Code. 
+
+
+The first application made in the video I watched to learn C++ was the following:
+
+#include <iostream>
+
+int main(){
+    auto result = (10 <-> 20) > 0;
+    std::cout << result << std::endl;
+    return 0;
+}
+
+I got an error like this:
+
+PS C:\Users\Lenovo\Desktop\cpp> cd "c:\Users\Lenovo\Desktop\cpp\" ; if ($?) { g++ main.cpp -o main } ; if ($?) { .\main }
+main.cpp: In function 'int main()':
+main.cpp:4:24: error: expected primary-expression before '->' token
+    4 |     auto result = (10 <-> 20) > 0;
+      |                        ^~
+main.cpp:4:27: error: expected unqualified-id before numeric constant
+    4 |     auto result = (10 <-> 20) > 0;
+      |                           ^~
+main.cpp:4:26: error: expected ')' before numeric constant
+    4 |     auto result = (10 <-> 20) > 0;
+      |                   ~      ^~~
+      |                          )
+
+
+Solution: For those who encounter an annoying error like this at the very beginning of the learning process, there is a workaround. Replacing the <-> operator with >.
+
+I don't understand why I can't use the <=> ("spaceship", three-way comparison) operator even though I'm using current versions. If anyone knows the root cause of this problem, please write. For now, I'm preparing a note like this so that I don't forget.
